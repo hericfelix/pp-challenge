@@ -23,11 +23,21 @@ const AgentCard = ({ agent }: AgentCardProps) => {
   const handleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <Container isOpen={isOpen} disabled={true}>
-      <Top onClick={handleOpen} isOpen={isOpen}>
+    <Container isOpen={isOpen} disabled={agent.status === 'inactive'}>
+      <Top
+        disabled={agent.status === 'inactive'}
+        onClick={handleOpen}
+        isOpen={isOpen}
+      >
         <NameContainer>
           <h4>Nome Completo</h4>
-          <UserIcon width={34} height={34} src={agent.image} alt={agent.name} />
+          <UserIcon
+            disabled={agent.status === 'inactive'}
+            width={34}
+            height={34}
+            src={agent.image}
+            alt={agent.name}
+          />
           <p>{agent.name}</p>
         </NameContainer>
         <IoIosArrowUp height={7} color="#587169" />
@@ -57,7 +67,7 @@ const AgentCard = ({ agent }: AgentCardProps) => {
         <div>
           <InnerCardContainer>
             <h4>Status</h4>
-            <StatusIcon disabled={true}>
+            <StatusIcon disabled={agent.status === 'inactive'}>
               {agent.status === 'active' ? 'Ativo' : 'Inativo'}
             </StatusIcon>
           </InnerCardContainer>

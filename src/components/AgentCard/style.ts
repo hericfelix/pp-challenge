@@ -5,7 +5,7 @@ interface IsOpenProps {
   isOpen: boolean;
 }
 
-interface ContainerProps {
+interface IsOpenStatusProps {
   isOpen: boolean;
   disabled: boolean;
 }
@@ -14,17 +14,18 @@ interface StatusProps {
   disabled: boolean;
 }
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div<IsOpenStatusProps>`
   width: 20rem;
   max-width: 95%;
   padding: 0 1rem;
   border-radius: 0.5rem;
-  border: ${({ theme, disabled }) =>
-    disabled ? `2px solid ${theme.neutral1}` : `2px solid ${theme.lightGreen}`};
+  border: ${({ theme, isOpen }) =>
+    `2px solid ${isOpen ? theme.lightGreen : theme.neutral1}`};
   margin-bottom: 5px;
+  transition: border 0.6s ease-in-out;
 `;
 
-export const Top = styled.div<IsOpenProps>`
+export const Top = styled.div<IsOpenStatusProps>`
   width: 100%;
 
   display: flex;
@@ -32,9 +33,14 @@ export const Top = styled.div<IsOpenProps>`
   padding-top: 1.5rem;
   padding-bottom: 1rem;
   align-items: center;
+
+  > p {
+    opacity: ${(disabled) => (disabled ? 0.5 : 1)};
+  }
   > :last-child {
     font-weight: 600;
     transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0)')};
+    transition: transform 0.6s ease-in-out;
   }
 `;
 
@@ -62,11 +68,10 @@ export const NameContainer = styled.div`
   }
 `;
 
-export const UserIcon = styled(Image)`
-  width: 2rem;
-  height: 2rem;
+export const UserIcon = styled(Image)<StatusProps>`
   border-radius: 50%;
   border: ${({ theme }) => `1px solid ${theme.lightGreen}`};
+  opacity: ${(disabled) => (disabled ? 0.5 : 1)};
 `;
 
 export const Bottom = styled.div<IsOpenProps>`

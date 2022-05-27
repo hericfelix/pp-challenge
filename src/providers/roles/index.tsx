@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import api from '../../services/api';
 import { RolesContextData, ProviderProps, IRoles } from '../../ts/interfaces';
 
@@ -12,14 +12,18 @@ export const RolesProvider = ({ children }: ProviderProps) => {
       .get('roles')
       .then((res) => res.data)
       .then((res) => {
-        setRoles(res.items);
-        return res.items;
+        setRoles(res.roles);
+        return res.roles;
       });
   };
 
   const getRoleById = async (id: number) => {
     return await api.get(`role/${id}`).then((res) => res.data);
   };
+
+  useEffect(() => {
+    getRoles();
+  }, []);
 
   return (
     <RolesContext.Provider value={{ roles, getRoleById, getRoles }}>

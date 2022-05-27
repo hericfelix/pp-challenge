@@ -43,7 +43,7 @@ export interface IAgentsDetailed {
 
 export interface IRoles {
   name: string;
-  department: string;
+  departament: string;
   agents_quantity: number;
 }
 

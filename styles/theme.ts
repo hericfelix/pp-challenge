@@ -1,4 +1,6 @@
-const theme = {
+import { createTheme } from '@mui/material/styles';
+
+export const theme = {
   black: '#34423D',
   green: '#22E0A1',
   darkGreen: '#1DD195',
@@ -11,4 +13,8 @@ const theme = {
   background: '#F8FAF9',
 };
 
-export default theme;
+export const muiTheme = createTheme({
+  typography: {
+    fontFamily: 'Poppins',
+  },
+});
