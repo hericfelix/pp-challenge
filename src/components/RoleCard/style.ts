@@ -7,6 +7,7 @@ interface IsOpenProps {
 export const Container = styled.div<IsOpenProps>`
   width: 20rem;
   max-width: 95%;
+  box-sizing: border-box;
   padding: 0 1rem;
   border-radius: 0.5rem;
   border: ${({ theme, isOpen }) =>
@@ -17,12 +18,12 @@ export const Container = styled.div<IsOpenProps>`
 
 export const Top = styled.div<IsOpenProps>`
   width: 100%;
-
   display: flex;
   justify-content: space-between;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
   align-items: center;
+  box-sizing: border-box;
   > :last-child {
     font-weight: 600;
     transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0)')};
@@ -54,6 +55,7 @@ export const InnerCardContainer = styled.div`
   align-items: flex-start;
   gap: 0.125rem;
   width: 45%;
+  box-sizing: border-box;
   > h4 {
     font-size: 0.75rem;
     color: ${({ theme }) => theme.neutral5};
@@ -68,7 +70,7 @@ export const InnerCardContainer = styled.div`
 `;
 
 export const Bottom = styled.div<IsOpenProps>`
-  max-height: ${({ isOpen }) => (isOpen ? '180px' : '0px')};
+  max-height: ${({ isOpen }) => (isOpen ? '11.25rem' : '0')};
   width: 100%;
   transition: max-height ease-in-out 0.8s;
   overflow-y: hidden;

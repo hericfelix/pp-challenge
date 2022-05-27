@@ -17,6 +17,7 @@ interface StatusProps {
 export const Container = styled.div<IsOpenStatusProps>`
   width: 20rem;
   max-width: 95%;
+  box-sizing: border-box;
   padding: 0 1rem;
   border-radius: 0.5rem;
   border: ${({ theme, isOpen }) =>
@@ -33,6 +34,7 @@ export const Top = styled.div<IsOpenStatusProps>`
   padding-top: 1.5rem;
   padding-bottom: 1rem;
   align-items: center;
+  box-sizing: border-box;
 
   > p {
     opacity: ${(disabled) => (disabled ? 0.5 : 1)};
@@ -50,6 +52,7 @@ export const NameContainer = styled.div`
   flex-wrap: wrap;
   gap: 0.5rem;
   align-items: center;
+  box-sizing: border-box;
 
   h4 {
     width: 100%;
@@ -60,7 +63,7 @@ export const NameContainer = styled.div`
   }
 
   p {
-    width: calc(100% - 42px);
+    width: calc(100% - 2.625rem);
     line-height: 140%;
     font-size: 0.75rem;
     font-weight: 600;
@@ -75,10 +78,11 @@ export const UserIcon = styled(Image)<StatusProps>`
 `;
 
 export const Bottom = styled.div<IsOpenProps>`
-  max-height: ${({ isOpen }) => (isOpen ? '300px' : '0px')};
+  max-height: ${({ isOpen }) => (isOpen ? '18.75rem' : '0px')};
   width: 100%;
   transition: max-height ease-in-out 0.8s;
   overflow-y: hidden;
+  box-sizing: border-box;
 
   > :last-child {
     margin-bottom: 1.5rem;
@@ -98,6 +102,7 @@ export const InnerCardContainer = styled.div`
   align-items: flex-start;
   gap: 0.125rem;
   width: 45%;
+  box-sizing: border-box;
   > h4 {
     font-size: 0.75rem;
     color: ${({ theme }) => theme.neutral5};
