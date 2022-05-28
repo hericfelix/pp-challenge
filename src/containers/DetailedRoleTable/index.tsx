@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import Table from '../Table';
-import { BsThreeDotsVertical } from 'react-icons/bs';
 import { useRoles } from '../../providers/roles';
-import { CheckInput, PaddingRemover, StatusContainer } from './style';
-import { IRolesDetailed } from '../../ts/interfaces';
 import { ReadWriteDelete } from '../../ts/types';
 import { Checkbox } from '@mui/material';
+import useWindowDimensions from '../../hooks';
 
 interface DetailedRoleTableProps {
   id: number;
 }
 
 const DetailedRoleTable = ({ id }: DetailedRoleTableProps) => {
+  const { width } = useWindowDimensions();
   const { getRoleById } = useRoles();
 
-  const [selectedRolePermissions, setSelectedRole] = useState<
+  const [selectedRolePermissions, setSelectedRolePermission] = useState<
     ReadWriteDelete[]
   >([] as ReadWriteDelete[]);
 
   const fetchRole = async () => {
     const selectedRole = await getRoleById(id);
 
-    setSelectedRole(selectedRole.role.grouprules);
+    setSelectedRolePermission(selectedRole.role.grouprules);
   };
 
   useEffect(() => {
@@ -33,14 +32,15 @@ const DetailedRoleTable = ({ id }: DetailedRoleTableProps) => {
       {
         Header: 'Cargo',
         accessor: 'role',
-        width: 300,
         height: 50,
+        width: width > 768 ? 120 : 60,
       },
       {
         Header: 'Ler',
+        width: 40,
         Cell: (c) => (
           <Checkbox
-            style={{ paddingLeft: 0 }}
+            style={{ paddingLeft: 0, cursor: 'default' }}
             checked={c.row.original.permissions.includes('read')}
             readOnly
           />
@@ -48,9 +48,10 @@ const DetailedRoleTable = ({ id }: DetailedRoleTableProps) => {
       },
       {
         Header: 'Editar',
+        width: 40,
         Cell: (c) => (
           <Checkbox
-            style={{ paddingLeft: 0 }}
+            style={{ paddingLeft: 0, cursor: 'default' }}
             checked={c.row.original.permissions.includes('write')}
             readOnly
           />
@@ -58,9 +59,13 @@ const DetailedRoleTable = ({ id }: DetailedRoleTableProps) => {
       },
       {
         Header: 'Excluir',
+        width: 40,
         Cell: (c) => (
           <Checkbox
-            style={{ paddingLeft: 0 }}
+            style={{
+              paddingLeft: 0,
+              cursor: 'default',
+            }}
             checked={c.row.original.permissions.includes('delete')}
             readOnly
           />
@@ -68,7 +73,7 @@ const DetailedRoleTable = ({ id }: DetailedRoleTableProps) => {
       },
     ],
 
-    []
+    [width]
   );
 
   return (

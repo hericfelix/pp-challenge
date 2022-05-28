@@ -30,7 +30,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header />
-      <DetailedRoleTable />
+      <DetailedRoleTable id={1} />
     </div>
   );
 };
