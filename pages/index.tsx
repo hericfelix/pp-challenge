@@ -13,6 +13,7 @@ const Home: NextPage = () => {
   const { roles } = useRoles();
 
   const [open, setOpen] = useState<boolean>(false);
+  const [pageSize, setPageSize] = useState<number>(5);
 
   const openModal = () => {
     setOpen(true);
@@ -28,8 +29,11 @@ const Home: NextPage = () => {
         goToPage={(num) => {}}
         canNextPage={true}
         canPreviousPage={false}
-        page={2}
+        pageIndex={3}
         pageCount={15}
+        data={agents}
+        pageSize={pageSize}
+        setPageSize={setPageSize}
       />
     </div>
   );
