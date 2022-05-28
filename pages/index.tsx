@@ -5,6 +5,7 @@ import AgentOptions from '../src/components/AgentOptions';
 import Header from '../src/components/Header';
 import Paginate from '../src/components/Paginate';
 import RoleOptions from '../src/components/RoleOptions';
+import AgentsTable from '../src/containers/AgentsTable';
 
 import { useAgents } from '../src/providers/agents';
 import { useRoles } from '../src/providers/roles';
@@ -27,6 +28,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header />
+      <AgentsTable />
     </div>
   );
 };
