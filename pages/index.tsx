@@ -1,6 +1,7 @@
 import { Modal, TextField } from '@mui/material';
 import type { NextPage } from 'next';
 import { useState } from 'react';
+import AgentOptions from '../src/components/AgentOptions';
 import RoleCard from '../src/components/RoleCard';
 import SelectCategory from '../src/components/SelectCategory';
 import { useAgents } from '../src/providers/agents';
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
     <div>
       <button onClick={openModal}>Abrir modal</button>
       <Modal open={open} onClose={closeModal}>
-        <SelectCategory changeCategory={(str) => {}} closeModal={closeModal} />
+        <AgentOptions closeModal={closeModal} />
       </Modal>
     </div>
   );
