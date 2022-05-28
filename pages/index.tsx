@@ -2,8 +2,8 @@ import { Modal, TextField } from '@mui/material';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import AgentOptions from '../src/components/AgentOptions';
-import RoleCard from '../src/components/RoleCard';
-import SelectCategory from '../src/components/SelectCategory';
+import RoleOptions from '../src/components/RoleOptions';
+
 import { useAgents } from '../src/providers/agents';
 import { useRoles } from '../src/providers/roles';
 
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
     <div>
       <button onClick={openModal}>Abrir modal</button>
       <Modal open={open} onClose={closeModal}>
-        <AgentOptions closeModal={closeModal} />
+        <RoleOptions closeModal={closeModal} />
       </Modal>
     </div>
   );

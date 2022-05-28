@@ -1,13 +1,14 @@
 import React from 'react';
 import { Container, Content, Menu, Top } from './style';
 import { AiOutlineClose, AiOutlineEye } from 'react-icons/ai';
-import { FiTrash2 } from 'react-icons/fi';
+import { FiEdit, FiTrash2 } from 'react-icons/fi';
+import { BiCopy } from 'react-icons/bi';
 
-interface AgentOptionsProps {
+interface RoleOptions {
   closeModal: () => void;
 }
 
-const AgentOptions = ({ closeModal }: AgentOptionsProps) => {
+const RoleOptions = ({ closeModal }: RoleOptions) => {
   return (
     <Container onClick={closeModal}>
       <Content>
@@ -17,7 +18,15 @@ const AgentOptions = ({ closeModal }: AgentOptionsProps) => {
         <Menu>
           <div>
             <AiOutlineEye size={18} />
-            <p onClick={() => {}}>Ver Colaborador</p>
+            <p onClick={() => {}}>Ver Cargo</p>
+          </div>
+          <div>
+            <FiEdit size={18} />
+            <p>Editar</p>
+          </div>
+          <div>
+            <BiCopy size={18} />
+            <p>Duplicar</p>
           </div>
           <div>
             <FiTrash2 size={18} />
@@ -29,4 +38,4 @@ const AgentOptions = ({ closeModal }: AgentOptionsProps) => {
   );
 };
 
-export default AgentOptions;
+export default RoleOptions;
