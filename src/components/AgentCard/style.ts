@@ -74,7 +74,7 @@ export const NameContainer = styled.div`
 export const UserIcon = styled(Image)<StatusProps>`
   border-radius: 50%;
   border: ${({ theme }) => `1px solid ${theme.lightGreen}`};
-  opacity: ${(disabled) => (disabled ? 0.5 : 1)};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 `;
 
 export const Bottom = styled.div<IsOpenProps>`

@@ -14,7 +14,7 @@ export interface AgentsContextData {
 export interface RolesContextData {
   roles: IRoles[];
   getRoles: () => void;
-  getRoleById: (id: number) => void;
+  getRoleById: (id: number) => Promise<IRolesDetailed>;
 }
 
 export interface IAgents {
@@ -48,9 +48,11 @@ export interface IRoles {
 }
 
 export interface IRolesDetailed {
-  name: string;
-  department: string;
-  grouprules: ReadWriteDelete[];
+  role: {
+    name: string;
+    department: string;
+    grouprules: ReadWriteDelete[];
+  };
 }
 
 export interface IPhone {

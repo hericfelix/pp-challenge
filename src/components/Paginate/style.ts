@@ -35,9 +35,11 @@ export const ArrowContainer = styled.div`
   align-items: center;
   gap: 0.75rem;
   p {
+    width: 5rem;
     font-weight: 600;
     font-size: 1rem;
     line-height: 150%;
+    text-align: center;
     color: ${({ theme }) => theme.neutral5};
   }
   button {

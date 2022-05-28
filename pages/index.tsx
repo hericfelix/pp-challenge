@@ -5,6 +5,9 @@ import AgentOptions from '../src/components/AgentOptions';
 import Header from '../src/components/Header';
 import Paginate from '../src/components/Paginate';
 import RoleOptions from '../src/components/RoleOptions';
+import AgentsTable from '../src/containers/AgentsTable';
+import DetailedRoleTable from '../src/containers/DetailedRoleTable';
+import RolesTable from '../src/containers/RolesTable';
 
 import { useAgents } from '../src/providers/agents';
 import { useRoles } from '../src/providers/roles';
@@ -27,6 +30,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header />
+      <DetailedRoleTable id={1} />
     </div>
   );
 };

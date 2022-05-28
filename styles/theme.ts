@@ -15,6 +15,11 @@ export const theme = {
 };
 
 export const muiTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#1DD195',
+    },
+  },
   typography: {
     fontFamily: 'Poppins',
   },

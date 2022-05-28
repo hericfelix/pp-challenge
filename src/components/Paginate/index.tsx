@@ -12,18 +12,18 @@ import {
 } from './style';
 
 interface PaginateProps {
-  goToPage: (pageIndex: number) => void;
+  gotoPage: (pageIndex: number) => void;
   canNextPage: boolean;
   canPreviousPage: boolean;
   pageCount: number;
   pageIndex: number;
-  setPageSize: Dispatch<SetStateAction<number>>;
+  setPageSize: (pageSize: number) => void;
   pageSize: number;
   data: Array<any>;
 }
 
 const Paginate = ({
-  goToPage,
+  gotoPage,
   canNextPage,
   canPreviousPage,
   pageCount,
@@ -48,7 +48,7 @@ const Paginate = ({
             setPageSize(Number(e.target.value));
           }}
         >
-          {[10, 20, 30, 40, 50].map((pageSize) => (
+          {[5, 10, 20, 30, 40, 50].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               {pageSize}
             </option>
@@ -56,14 +56,17 @@ const Paginate = ({
         </select>
       </SelectPageSizeContainer>
       <ArrowContainer>
-        <ArrowButton onClick={() => goToPage(0)} disabled={!canPreviousPage}>
+        <ArrowButton
+          onClick={() => gotoPage(pageIndex - 1)}
+          disabled={!canPreviousPage}
+        >
           <IoIosArrowBack size={18} />
         </ArrowButton>
         <p>
           {pageIndex + 1} de {pageCount}
         </p>
         <ArrowButton
-          onClick={() => goToPage(pageCount - 1)}
+          onClick={() => gotoPage(pageIndex + 1)}
           disabled={!canNextPage}
         >
           <IoIosArrowForward size={18} />
