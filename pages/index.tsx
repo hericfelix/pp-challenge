@@ -2,6 +2,7 @@ import { Modal, TextField } from '@mui/material';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import AgentOptions from '../src/components/AgentOptions';
+import Header from '../src/components/Header';
 import Paginate from '../src/components/Paginate';
 import RoleOptions from '../src/components/RoleOptions';
 
@@ -25,16 +26,7 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <Paginate
-        goToPage={(num) => {}}
-        canNextPage={true}
-        canPreviousPage={false}
-        pageIndex={3}
-        pageCount={15}
-        data={agents}
-        pageSize={pageSize}
-        setPageSize={setPageSize}
-      />
+      <Header />
     </div>
   );
 };
