@@ -1,13 +1,10 @@
-import Image from 'next/image';
 import React from 'react';
 import { useAgents } from '../../providers/agents';
 import Table from '../Table';
 import { NameContainer, StatusContainer, StatusIcon, UserIcon } from './style';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
-type Props = {};
-
-const AgentsTable = (props: Props) => {
+const AgentsTable = () => {
   const { agents } = useAgents();
 
   console.log(agents);
@@ -63,7 +60,7 @@ const AgentsTable = (props: Props) => {
 
   return (
     <div>
-      <Table columns={columns} data={agents} />
+      <Table hasPagination columns={columns} data={agents} />
     </div>
   );
 };

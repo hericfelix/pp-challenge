@@ -18,6 +18,24 @@ export const Container = styled.div`
   > div:first-child {
     overflow-x: auto;
     width: 100%;
+    ::-webkit-scrollbar {
+      height: 15px;
+    }
+
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 14px 14px transparent;
+      border: solid 4px transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      box-shadow: ${({ theme }) => `inset 0 0 14px 14px ${theme.neutral2}`};
+      border: solid 4px transparent;
+      border-radius: 32px;
+    }
+
+    ::-webkit-scrollbar-button {
+      display: none;
+    }
   }
 `;
 
@@ -52,7 +70,7 @@ export const TH = styled.th`
   font-weight: 600;
   font-size: 0.75rem;
   line-height: 140%;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   color: ${(props) => props.theme.neutral5};
 `;
 

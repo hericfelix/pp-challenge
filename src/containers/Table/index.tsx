@@ -6,9 +6,12 @@ import Paginate from '../../components/Paginate';
 interface TableProps {
   columns: any;
   data: any;
+  hasPagination: boolean;
 }
 
-export const Table = ({ columns, data }: TableProps) => {
+export const Table = ({ columns, data, hasPagination = true }: TableProps) => {
+  console.log(data);
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -79,16 +82,18 @@ export const Table = ({ columns, data }: TableProps) => {
             </StyledTable>
           </div>
 
-          <Paginate
-            gotoPage={gotoPage}
-            canNextPage={canNextPage}
-            canPreviousPage={canPreviousPage}
-            pageIndex={pageIndex}
-            pageCount={pageCount}
-            data={data}
-            pageSize={pageSize}
-            setPageSize={setPageSize}
-          />
+          {hasPagination && (
+            <Paginate
+              gotoPage={gotoPage}
+              canNextPage={canNextPage}
+              canPreviousPage={canPreviousPage}
+              pageIndex={pageIndex}
+              pageCount={pageCount}
+              data={data}
+              pageSize={pageSize}
+              setPageSize={setPageSize}
+            />
+          )}
         </Container>
       )}
     </>
