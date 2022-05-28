@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Table from '../Table';
+import Table from '../../components/Table';
 import { useRoles } from '../../providers/roles';
 import { ReadWriteDelete } from '../../ts/types';
 import { Checkbox } from '@mui/material';

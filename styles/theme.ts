@@ -11,6 +11,7 @@ export const theme = {
   neutral4: '#709085',
   neutral5: '#587169 ',
   neutral6: '#465953',
+  neutral7: '#F5FAF8',
   background: '#F8FAF9',
 };
 

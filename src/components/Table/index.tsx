@@ -1,7 +1,7 @@
 import { Container, StyledTable, THead, TBody, TH, TR, TD } from './style';
 import React from 'react';
 import { useTable, usePagination, useFlexLayout } from 'react-table';
-import Paginate from '../../components/Paginate';
+import Paginate from '../Paginate';
 
 interface TableProps {
   columns: any;

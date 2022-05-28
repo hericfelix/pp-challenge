@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from '../Table';
+import Table from '../../components/Table';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { useRoles } from '../../providers/roles';
 import { StatusContainer } from './style';
