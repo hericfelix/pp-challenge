@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAgents } from '../../providers/agents';
-import Table from '../Table';
+import Table from '../../components/Table';
 import { NameContainer, StatusContainer, StatusIcon, UserIcon } from './style';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 

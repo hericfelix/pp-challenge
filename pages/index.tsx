@@ -7,6 +7,7 @@ import Paginate from '../src/components/Paginate';
 import RoleOptions from '../src/components/RoleOptions';
 import AgentsTable from '../src/containers/AgentsTable';
 import DetailedRoleTable from '../src/containers/DetailedRoleTable';
+import DetailedUserContainer from '../src/containers/DetailedUserContainer';
 import RolesTable from '../src/containers/RolesTable';
 
 import { useAgents } from '../src/providers/agents';
@@ -30,7 +31,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header />
-      <DetailedRoleTable id={1} />
+      <DetailedUserContainer id={1} />
     </div>
   );
 };

@@ -18,7 +18,10 @@ export const AgentsProvider = ({ children }: ProviderProps) => {
   };
 
   const getAgentById = async (id: number) => {
-    return await api.get(`agent/${id}`).then((res) => res.data);
+    return await api
+      .get(`agent/${id}`)
+      .then((res) => res.data)
+      .then((res) => res.agent);
   };
 
   useEffect(() => {

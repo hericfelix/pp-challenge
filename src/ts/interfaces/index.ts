@@ -8,7 +8,7 @@ export interface ProviderProps {
 export interface AgentsContextData {
   agents: IAgents[];
   getAgents: () => void;
-  getAgentById: (id: number) => void;
+  getAgentById: (id: number) => Promise<IAgentsDetailed>;
 }
 
 export interface RolesContextData {
