@@ -8,6 +8,7 @@ export const theme = {
   neutral1: '#EAEFED',
   neutral2: '#CAD6D1',
   neutral3: '#A3B8B0',
+  neutral4: '#709085',
   neutral5: '#587169 ',
   neutral6: '#465953',
   background: '#F8FAF9',
