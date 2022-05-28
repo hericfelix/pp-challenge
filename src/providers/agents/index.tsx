@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import api from '../../services/api';
 import { AgentsContextData, ProviderProps, IAgents } from '../../ts/interfaces';
 
@@ -20,6 +20,10 @@ export const AgentsProvider = ({ children }: ProviderProps) => {
   const getAgentById = async (id: number) => {
     return await api.get(`agent/${id}`).then((res) => res.data);
   };
+
+  useEffect(() => {
+    getAgents();
+  }, []);
 
   return (
     <AgentsContext.Provider value={{ agents, getAgentById, getAgents }}>
