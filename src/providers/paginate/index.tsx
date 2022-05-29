@@ -31,8 +31,7 @@ export const PaginateProvider = ({ children }: ProviderProps) => {
     const slicedAgents = filteredAgents.slice(0, 5);
 
     setPaginatedAgents(slicedAgents);
-    console.log(slicedAgents.length);
-    console.log(filteredAgents.length);
+
     if (slicedAgents.length === filteredAgents.length) {
       setCanLoadMoreAgents(false);
     } else {
@@ -44,8 +43,7 @@ export const PaginateProvider = ({ children }: ProviderProps) => {
     const slicedRoles = filteredRoles.slice(0, 5);
 
     setPaginatedRoles(slicedRoles);
-    console.log(slicedRoles.length);
-    console.log(filteredRoles.length);
+
     if (slicedRoles.length === filteredRoles.length) {
       setCanLoadMoreRoles(false);
     } else {

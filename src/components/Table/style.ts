@@ -1,9 +1,5 @@
 import styled from '@emotion/styled';
 
-interface StatusProps {
-  disabled: boolean;
-}
-
 export const Container = styled.div`
   margin: 0 auto;
   width: 100%;
@@ -15,7 +11,7 @@ export const Container = styled.div`
   background: #fffdfa;
 
   > div:first-child {
-    overflow: auto;
+    overflow-x: auto;
     max-height: 75vh;
     box-sizing: border-box;
     width: 100%;

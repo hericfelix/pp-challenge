@@ -19,12 +19,12 @@ const AgentOptions = ({ closeModal }: AgentOptionsProps) => {
           <AiOutlineClose onClick={closeModal} />
         </Top>
         <Menu>
-          <div>
-            <AiOutlineEye size={18} />
-            <Link href={`/agent/${selectedAgentId}`}>
+          <Link href={`/agent/${selectedAgentId}`}>
+            <div>
+              <AiOutlineEye size={18} />
               <a>Ver Colaborador</a>
-            </Link>
-          </div>
+            </div>
+          </Link>
           <div>
             <FiTrash2 size={18} />
             <p>Excluir</p>

@@ -56,7 +56,13 @@ export const StatusContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  :last-child {
+  > :last-child {
+    cursor: pointer;
+    height: 100%;
+    width: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     color: ${({ theme }) => theme.neutral5};
   }
 `;

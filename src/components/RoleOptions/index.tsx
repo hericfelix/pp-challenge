@@ -17,12 +17,12 @@ const RoleOptions = ({ closeModal }: RoleOptions) => {
           <AiOutlineClose onClick={closeModal} />
         </Top>
         <Menu>
-          <div>
-            <AiOutlineEye size={18} />
-            <Link href={'role/1'}>
+          <Link href={'role/1'}>
+            <div>
+              <AiOutlineEye size={18} />
               <a>Ver Cargo</a>
-            </Link>
-          </div>
+            </div>
+          </Link>
           <div>
             <FiEdit size={18} />
             <p>Editar</p>

@@ -85,6 +85,7 @@ export const DesktopContent = styled.div`
     border-radius: 0.5rem;
     min-height: 34.5rem;
     gap: 2.5rem;
+    position: relative;
   }
   h3 {
     font-weight: 600;

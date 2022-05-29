@@ -1,6 +1,6 @@
 import { InputAdornment, Modal, TextField } from '@mui/material';
 import type { NextPage } from 'next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FiLoader, FiSearch } from 'react-icons/fi';
 import AgentCard from '../src/components/AgentCard';
@@ -48,6 +48,19 @@ const Home: NextPage = () => {
     handleLoadMoreRoles,
   } = usePaginate();
   const [category, setCategory] = useState<AgentsOrRoles>('agents');
+  const [searchValue, setSearchValue] = useState<string>('');
+
+  useEffect(() => {
+    setSearchValue('');
+  }, [category]);
+
+  useEffect(() => {
+    if (category === 'agents') {
+      handleAgentsSearch(searchValue);
+    } else {
+      handleRolesSearch(searchValue);
+    }
+  }, [searchValue]);
 
   return (
     <>
@@ -72,9 +85,9 @@ const Home: NextPage = () => {
             <TextField
               placeholder="Pesquise por nome"
               onChange={(evt) => {
-                handleAgentsSearch(evt.target.value);
-                handleRolesSearch(evt.target.value);
+                setSearchValue(evt.target.value);
               }}
+              value={searchValue}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -115,6 +128,12 @@ const Home: NextPage = () => {
                       key={el.name + el.departament}
                     />
                   ))}
+                  {canLoadMoreRoles && (
+                    <Button onClick={handleLoadMoreRoles}>
+                      <FiLoader />
+                      <p>Carregar mais</p>
+                    </Button>
+                  )}
                 </CardsList>
               </>
             )}
