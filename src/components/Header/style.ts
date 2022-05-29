@@ -8,6 +8,7 @@ export const Container = styled.div`
   justify-content: space-between;
   border-bottom: ${({ theme }) => `2px solid ${theme.neutral1}`};
   box-sizing: border-box;
+  background-color: #fff;
 
   @media (min-width: 768px) {
     padding: 0;

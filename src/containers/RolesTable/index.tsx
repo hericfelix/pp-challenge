@@ -5,9 +5,8 @@ import { useRoles } from '../../providers/roles';
 import { StatusContainer } from './style';
 
 const RolesTable = () => {
-  const { roles } = useRoles();
+  const { filteredRoles } = useRoles();
 
-  console.log(roles);
   const columns = React.useMemo(
     () => [
       {
@@ -36,7 +35,7 @@ const RolesTable = () => {
 
   return (
     <div>
-      <Table hasPagination columns={columns} data={roles} />
+      <Table hasPagination columns={columns} data={filteredRoles} />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { IRoles } from '../../ts/interfaces';
 import { Bottom, Container, InnerCardContainer, Top } from './style';
 import { IoIosArrowUp } from 'react-icons/io';
@@ -7,9 +7,10 @@ import Button from '../Button';
 
 interface RoleCardProps {
   role: IRoles;
+  setRoleOptionsIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const RoleCard = ({ role }: RoleCardProps) => {
+const RoleCard = ({ role, setRoleOptionsIsOpen }: RoleCardProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleOpen = () => setIsOpen(!isOpen);
@@ -35,7 +36,11 @@ const RoleCard = ({ role }: RoleCardProps) => {
             <p>{role.agents_quantity}</p>
           </InnerCardContainer>
         </div>
-        <Button onClick={() => {}}>
+        <Button
+          onClick={() => {
+            setRoleOptionsIsOpen(true);
+          }}
+        >
           <AiOutlineFileAdd size={22} color="#1DD195" />
           <p>Ações</p>
         </Button>

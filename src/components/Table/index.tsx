@@ -28,7 +28,7 @@ export const Table = ({ columns, data, hasPagination = true }: TableProps) => {
     {
       columns,
       data,
-      initialState: { pageIndex: 0 },
+      initialState: { pageIndex: 0, pageSize: 5 },
     },
     usePagination,
     useFlexLayout

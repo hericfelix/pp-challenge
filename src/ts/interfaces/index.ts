@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { Dispatch, ReactNode, SetStateAction } from 'react';
 import { ActiveOrInactive, CPF, ReadWriteDelete } from '../types';
 
 export interface ProviderProps {
@@ -6,15 +6,37 @@ export interface ProviderProps {
 }
 
 export interface AgentsContextData {
-  agents: IAgents[];
+  filteredAgents: IAgents[];
   getAgents: () => void;
-  getAgentById: (id: number) => Promise<IAgentsDetailed>;
+  getAgentById: (id: string) => Promise<IAgentsDetailed>;
+  handleAgentsSearch: (str: string) => void;
+  selectedAgentId: number;
+  setSelectedAgentId: Dispatch<SetStateAction<number>>;
 }
 
 export interface RolesContextData {
-  roles: IRoles[];
+  filteredRoles: IRoles[];
   getRoles: () => void;
   getRoleById: (id: number) => Promise<IRolesDetailed>;
+  handleRolesSearch: (str: string) => void;
+}
+
+export interface ModalContextData {
+  categoryIsOpen: boolean;
+  setCategoryIsOpen: Dispatch<SetStateAction<boolean>>;
+  agentOptionsIsOpen: boolean;
+  setAgentOptionsIsOpen: Dispatch<SetStateAction<boolean>>;
+  roleOptionsIsOpen: boolean;
+  setRoleOptionsIsOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface PaginateContextData {
+  paginatedAgents: IAgents[];
+  handleLoadMoreAgents: () => void;
+  canLoadMoreAgents: boolean;
+  paginatedRoles: IRoles[];
+  handleLoadMoreRoles: () => void;
+  canLoadMoreRoles: boolean;
 }
 
 export interface IAgents {
