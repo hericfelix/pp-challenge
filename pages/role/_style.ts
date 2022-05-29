@@ -67,3 +67,52 @@ export const ReturnIcon = styled.a`
     color: ${({ theme }) => theme.black};
   }
 `;
+
+export const RoleData = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  background-color: #ffffff;
+
+  max-width: 59.75rem;
+  width: 100%;
+  box-sizing: border-box;
+  h3 {
+    font-weight: 600;
+    color: ${({ theme }) => theme.black};
+  }
+`;
+
+export const TopData = styled.div`
+  border-bottom: ${({ theme }) => `2px solid ${theme.neutral1}`};
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 2.5rem 1.5rem;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    border-bottom: none;
+    padding-bottom: 0;
+
+    > div {
+      flex-direction: row;
+      justify-content: space-between;
+      > * {
+        width: 48%;
+      }
+    }
+  }
+`;
+
+export const BottomData = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 2.5rem 1.5rem;
+`;

@@ -2,8 +2,7 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   padding: 2.5rem 1.5rem;
-  width: 60rem;
-  max-width: 80vw;
+  width: 100%;
   gap: 2.5rem;
   border-radius: 0.5rem;
   box-shadow: 0px 4px 8px rgba(165, 171, 179, 0.16);
@@ -11,6 +10,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   background-color: #ffffff;
+  box-sizing: border-box;
   h3 {
     font-weight: 600;
     font-size: 1.125rem;
@@ -35,17 +35,17 @@ export const NameContainer = styled.div`
     justify-content: center;
     background-color: ${({ theme }) => theme.neutral1};
     flex-shrink: 0;
+    box-sizing: border-box;
   }
 
   > div:last-child {
-    width: 100%;
     display: flex;
     gap: 0.25rem;
     flex-direction: column;
     flex-grow: 0;
-    > * {
-      max-width: 80%;
-    }
+    box-sizing: border-box;
+    max-width: calc(100% - 6.5rem);
+
     p {
       font-size: 14px;
       line-height: 120%;

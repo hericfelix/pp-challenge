@@ -5,7 +5,7 @@ import Header from '../../src/components/Header';
 import Sidebar from '../../src/components/Sidebar';
 import DetailedUserContainer from '../../src/containers/DetailedUserContainer';
 import { IAgentsDetailed } from '../../src/ts/interfaces';
-import { Container, ReturnIcon } from './_style';
+import { Container, Content, ReturnIcon } from './_style';
 
 interface AgentProps {
   selectedAgent: IAgentsDetailed;
@@ -17,17 +17,19 @@ const Agent = ({ selectedAgent }: AgentProps) => {
       <Header />
       <Sidebar />
       <Container>
-        <div>
+        <Content>
           <div>
-            <Link href="/">
-              <ReturnIcon>
-                <AiOutlineArrowLeft />
-              </ReturnIcon>
-            </Link>
-            <h2>Detalhes do colaborador</h2>
+            <div>
+              <Link href="/">
+                <ReturnIcon>
+                  <AiOutlineArrowLeft />
+                </ReturnIcon>
+              </Link>
+              <h2>Detalhes do colaborador</h2>
+            </div>
+            <DetailedUserContainer agent={selectedAgent} />
           </div>
-          <DetailedUserContainer agent={selectedAgent} />
-        </div>
+        </Content>
       </Container>
     </>
   );

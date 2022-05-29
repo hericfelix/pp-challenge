@@ -1,31 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Table from '../../components/Table';
-import { useRoles } from '../../providers/roles';
-import { ReadWriteDelete } from '../../ts/types';
 import { Checkbox } from '@mui/material';
 import useWindowDimensions from '../../hooks';
+import { IRolesDetailed } from '../../ts/interfaces';
 
 interface DetailedRoleTableProps {
-  id: number;
+  role: IRolesDetailed;
 }
 
-const DetailedRoleTable = ({ id }: DetailedRoleTableProps) => {
+const DetailedRoleTable = ({ role }: DetailedRoleTableProps) => {
   const { width } = useWindowDimensions();
-  const { getRoleById } = useRoles();
-
-  const [selectedRolePermissions, setSelectedRolePermission] = useState<
-    ReadWriteDelete[]
-  >([] as ReadWriteDelete[]);
-
-  const fetchRole = async () => {
-    const selectedRole = await getRoleById(id);
-
-    setSelectedRolePermission(selectedRole.role.grouprules);
-  };
-
-  useEffect(() => {
-    fetchRole();
-  }, []);
 
   const columns = React.useMemo(
     () => [
@@ -80,7 +64,7 @@ const DetailedRoleTable = ({ id }: DetailedRoleTableProps) => {
     <div>
       <Table
         hasPagination={false}
-        data={selectedRolePermissions}
+        data={role.role.grouprules}
         columns={columns}
       />
     </div>
