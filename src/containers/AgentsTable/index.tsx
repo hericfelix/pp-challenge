@@ -5,9 +5,8 @@ import { NameContainer, StatusContainer, StatusIcon, UserIcon } from './style';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
 const AgentsTable = () => {
-  const { agents } = useAgents();
+  const { filteredAgents } = useAgents();
 
-  console.log(agents);
   const columns = React.useMemo(
     () => [
       {
@@ -60,7 +59,7 @@ const AgentsTable = () => {
 
   return (
     <div>
-      <Table hasPagination columns={columns} data={agents} />
+      <Table hasPagination columns={columns} data={filteredAgents} />
     </div>
   );
 };

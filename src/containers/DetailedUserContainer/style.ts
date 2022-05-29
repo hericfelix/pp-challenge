@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  margin: 10px auto;
   padding: 2.5rem 1.5rem;
   width: 60rem;
   max-width: 80vw;
@@ -11,6 +10,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background-color: #ffffff;
   h3 {
     font-weight: 600;
     font-size: 1.125rem;
@@ -38,7 +38,7 @@ export const NameContainer = styled.div`
   }
 
   > div:last-child {
-    width: auto;
+    width: 100%;
     display: flex;
     gap: 0.25rem;
     flex-direction: column;

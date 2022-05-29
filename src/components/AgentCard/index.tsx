@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { IAgents } from '../../ts/interfaces';
 import {
   Bottom,
@@ -12,12 +12,16 @@ import {
 import { IoIosArrowUp } from 'react-icons/io';
 import { AiOutlineFileAdd } from 'react-icons/ai';
 import Button from '../Button';
+import { useAgents } from '../../providers/agents';
 
 interface AgentCardProps {
   agent: IAgents;
+  setAgentOptionsIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const AgentCard = ({ agent }: AgentCardProps) => {
+const AgentCard = ({ agent, setAgentOptionsIsOpen }: AgentCardProps) => {
+  const { setSelectedAgentId } = useAgents();
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleOpen = () => setIsOpen(!isOpen);
@@ -72,7 +76,12 @@ const AgentCard = ({ agent }: AgentCardProps) => {
             </StatusIcon>
           </InnerCardContainer>
         </div>
-        <Button onClick={() => {}}>
+        <Button
+          onClick={() => {
+            setSelectedAgentId(Number(agent.agent_id));
+            setAgentOptionsIsOpen(true);
+          }}
+        >
           <AiOutlineFileAdd size={22} color="#1DD195" />
           <p>Ações</p>
         </Button>

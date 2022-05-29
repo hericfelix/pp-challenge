@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { Container, Content, Menu, Top } from './style';
 import { AiOutlineClose } from 'react-icons/ai';
+import { AgentsOrRoles } from '../../ts/types';
 
 interface SelectCategoryProps {
   closeModal: () => void;
-  changeCategory: (str: string) => void;
+  changeCategory: Dispatch<SetStateAction<AgentsOrRoles>>;
 }
 
 const SelectCategory = ({

@@ -3,6 +3,7 @@ import { Container, Content, Menu, Top } from './style';
 import { AiOutlineClose, AiOutlineEye } from 'react-icons/ai';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import { BiCopy } from 'react-icons/bi';
+import Link from 'next/link';
 
 interface RoleOptions {
   closeModal: () => void;
@@ -18,7 +19,9 @@ const RoleOptions = ({ closeModal }: RoleOptions) => {
         <Menu>
           <div>
             <AiOutlineEye size={18} />
-            <p onClick={() => {}}>Ver Cargo</p>
+            <Link href={'role/1'}>
+              <a>Ver Cargo</a>
+            </Link>
           </div>
           <div>
             <FiEdit size={18} />

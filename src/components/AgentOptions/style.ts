@@ -40,12 +40,13 @@ export const Menu = styled.div`
     :last-child {
       opacity: 0.3;
     }
-    p {
+    a {
+      text-decoration: none;
       font-family: 'Poppins';
       font-weight: 500;
       font-size: 1rem;
       line-height: 150%;
-      color: ${({ theme }) => theme.black};
+      color: ${({ theme }) => theme.neutral5};
     }
   }
 `;

@@ -6,6 +6,8 @@ const AgentsContext = createContext<AgentsContextData>({} as AgentsContextData);
 
 export const AgentsProvider = ({ children }: ProviderProps) => {
   const [agents, setAgents] = useState<IAgents[]>([]);
+  const [filteredAgents, setFilteredAgents] = useState<IAgents[]>([]);
+  const [selectedAgentId, setSelectedAgentId] = useState<number>(0);
 
   const getAgents = async () => {
     return await api
@@ -13,15 +15,23 @@ export const AgentsProvider = ({ children }: ProviderProps) => {
       .then((res) => res.data)
       .then((res) => {
         setAgents(res.items);
+        setFilteredAgents(res.items);
         return res.items;
       });
   };
 
-  const getAgentById = async (id: number) => {
+  const getAgentById = async (id: string) => {
     return await api
       .get(`agent/${id}`)
       .then((res) => res.data)
       .then((res) => res.agent);
+  };
+
+  const handleAgentsSearch = (str: string) => {
+    const result = agents.filter((el) =>
+      el.name.toLowerCase().includes(str.toLowerCase())
+    );
+    setFilteredAgents(result);
   };
 
   useEffect(() => {
@@ -29,7 +39,16 @@ export const AgentsProvider = ({ children }: ProviderProps) => {
   }, []);
 
   return (
-    <AgentsContext.Provider value={{ agents, getAgentById, getAgents }}>
+    <AgentsContext.Provider
+      value={{
+        selectedAgentId,
+        setSelectedAgentId,
+        handleAgentsSearch,
+        filteredAgents,
+        getAgentById,
+        getAgents,
+      }}
+    >
       {children}
     </AgentsContext.Provider>
   );

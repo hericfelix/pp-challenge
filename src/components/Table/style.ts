@@ -8,7 +8,6 @@ export const Container = styled.div`
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
-  padding: 1.313rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -16,7 +15,9 @@ export const Container = styled.div`
   background: #fffdfa;
 
   > div:first-child {
-    overflow-x: auto;
+    overflow: auto;
+    max-height: 75vh;
+    box-sizing: border-box;
     width: 100%;
     ::-webkit-scrollbar {
       height: 15px;
