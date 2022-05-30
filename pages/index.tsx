@@ -26,7 +26,7 @@ import {
   DesktopContent,
   MobileContainer,
   MobileContent,
-} from './_styles';
+} from '../styles/homePage.style';
 
 const Home: NextPage = () => {
   const { handleAgentsSearch } = useAgents();

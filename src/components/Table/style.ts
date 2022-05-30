@@ -78,10 +78,13 @@ export const TD = styled.td`
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 140%;
-  color: ${({ children, theme }) =>
-    children?.props?.row.original.status === 'inactive'
+  color: ${({ children, theme }) => {
+    const { props } = children as any;
+
+    return props?.row.original.status === 'inactive'
       ? theme.neutral3
-      : theme.neutral5};
+      : theme.neutral5;
+  }};
   display: flex;
   align-items: center;
 `;

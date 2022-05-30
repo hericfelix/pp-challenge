@@ -5,7 +5,7 @@ import Header from '../../src/components/Header';
 import Sidebar from '../../src/components/Sidebar';
 import DetailedUserContainer from '../../src/containers/DetailedUserContainer';
 import { IAgentsDetailed } from '../../src/ts/interfaces';
-import { Container, Content, ReturnIcon } from './_style';
+import { Container, Content, ReturnIcon } from '../../styles/agentPage.style';
 
 interface AgentProps {
   selectedAgent: IAgentsDetailed;

@@ -13,7 +13,7 @@ import {
   ReturnIcon,
   RoleData,
   TopData,
-} from './_style';
+} from '../../styles/rolePage.style';
 
 interface RoleProps {
   selectedRole: IRolesDetailed;
