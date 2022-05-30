@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  PP Challenge
+</h1>
 
-## Getting Started
+Esta aplicação foi criada para o desafio da PedidoPago, e o objetivo dela é consumir uma API de funcionários e cargos, e mostrar isso de maneira na qual o usuário consegue ter uma visualização das informações de tanto de forma geral como de forma específica de cada um dos funcionários e cargos.
 
-First, run the development server:
+## **Tecnologias**
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- <a href="https://nextjs.org/" target="_blank">NextJS</a>
+- <a href="https://pt-br.reactjs.org/" target="_blank">ReactJS</a>
+- <a href="https://www.typescriptlang.org/" target="_blank">Typescript</a>
+- <a href="https://emotion.sh/docs/introduction" target="_blank">Emotion</a>
+- <a href="https://axios-http.com/ptbr/docs/intro" target="_blank">Axios</a>
+- <a href="https://mui.com/pt/" target="_blank">MUI</a>
+- <a href="https://react-icons.github.io/react-icons" target="_blank">React Icons</a>
+- <a href="https://react-table-v7.tanstack.com/" target="_blank">React Table V7</a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## **Instruções**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+A aplicação pode ser iniciada localmente com os comandos `yarn dev` ou `npm run dev`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+---
 
-## Learn More
+## **Páginas**
 
-To learn more about Next.js, take a look at the following resources:
+`/`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Página onde é possível ver a listagem dos funcionários e dos cargos de maneira resumida, permitindo busca por nome do funcionario ou do cargo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`/agent/{id}`
 
-## Deploy on Vercel
+Página onde é possível verificar as informações detalhadas de um funcionário específico. O id da url indica qual usuário será mostrado.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`/role/{id}`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Página onde é possível verificar as informações detalhadas de um cargo específico.
