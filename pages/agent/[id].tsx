@@ -35,7 +35,7 @@ const Agent = ({ selectedAgent }: AgentProps) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
   const { id } = context.query;
 
   const res = await fetch(`https://pp-api-desafio.herokuapp.com/agent/${id}`)

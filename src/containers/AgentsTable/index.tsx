@@ -14,7 +14,7 @@ const AgentsTable = () => {
       {
         Header: 'Nome Completo',
         accessor: 'name',
-        Cell: (c) => {
+        Cell: (c: any) => {
           return (
             <NameContainer>
               <UserIcon
@@ -44,7 +44,7 @@ const AgentsTable = () => {
       {
         Header: 'Status',
         accessor: 'status',
-        Cell: (c) => {
+        Cell: (c: any) => {
           const { ref, isComponentVisible, setIsComponentVisible } =
             useComponentVisible(false);
 

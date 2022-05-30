@@ -23,7 +23,7 @@ const RolesTable = () => {
         Header: 'Colaboradores',
         accessor: 'agents_quantity',
         width: 300,
-        Cell: (c) => {
+        Cell: (c: any) => {
           const { ref, isComponentVisible, setIsComponentVisible } =
             useComponentVisible(false);
 

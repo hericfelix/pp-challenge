@@ -17,12 +17,12 @@ const DetailedRoleTable = ({ role }: DetailedRoleTableProps) => {
         Header: 'Cargo',
         accessor: 'role',
         height: 50,
-        width: width > 768 ? 120 : 60,
+        width: (width as number) > 768 ? 120 : 60,
       },
       {
         Header: 'Ler',
         width: 40,
-        Cell: (c) => (
+        Cell: (c: any) => (
           <Checkbox
             style={{ paddingLeft: 0, cursor: 'default' }}
             checked={c.row.original.permissions.includes('read')}

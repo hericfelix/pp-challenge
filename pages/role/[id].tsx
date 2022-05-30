@@ -94,7 +94,7 @@ const Role = ({ selectedRole }: RoleProps) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
   const { id } = context.query;
 
   const res = await fetch(`https://pp-api-desafio.herokuapp.com/role/${id}`)
