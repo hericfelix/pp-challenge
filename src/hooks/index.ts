@@ -25,7 +25,7 @@ export const useWindowDimensions = (): WindowDimentions => {
   return windowDimensions;
 };
 
-export default function useComponentVisible(initialIsVisible: boolean) {
+export const useComponentVisible = (initialIsVisible: boolean) => {
   const [isComponentVisible, setIsComponentVisible] =
     useState<boolean>(initialIsVisible);
   const ref = useRef<HTMLDivElement>(null);

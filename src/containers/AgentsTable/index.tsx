@@ -4,7 +4,7 @@ import Table from '../../components/Table';
 import { NameContainer, StatusContainer, StatusIcon, UserIcon } from './style';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import DesktopAgentModal from '../../components/DesktopAgentModal';
-import useComponentVisible from '../../hooks';
+import {useComponentVisible} from '../../hooks';
 
 const AgentsTable = () => {
   const { filteredAgents } = useAgents();
