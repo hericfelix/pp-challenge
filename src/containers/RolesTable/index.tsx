@@ -3,6 +3,8 @@ import Table from '../../components/Table';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { useRoles } from '../../providers/roles';
 import { StatusContainer } from './style';
+import useComponentVisible from '../../hooks';
+import DesktopRoleModal from '../../components/DesktopRoleModal';
 
 const RolesTable = () => {
   const { filteredRoles } = useRoles();
@@ -21,12 +23,20 @@ const RolesTable = () => {
         Header: 'Colaboradores',
         accessor: 'agents_quantity',
         width: 300,
-        Cell: ({ value }) => (
-          <StatusContainer>
-            <p>{value}</p>
-            <BsThreeDotsVertical size={'15px'} />
-          </StatusContainer>
-        ),
+        Cell: (c) => {
+          const { ref, isComponentVisible, setIsComponentVisible } =
+            useComponentVisible(false);
+
+          return (
+            <StatusContainer>
+              <p>{c.value}</p>
+              <div onClick={() => setIsComponentVisible(true)} ref={ref}>
+                <BsThreeDotsVertical size={'15px'} />
+                {isComponentVisible && <DesktopRoleModal />}
+              </div>
+            </StatusContainer>
+          );
+        },
       },
     ],
 

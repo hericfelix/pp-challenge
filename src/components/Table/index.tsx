@@ -10,8 +10,6 @@ interface TableProps {
 }
 
 export const Table = ({ columns, data, hasPagination = true }: TableProps) => {
-  console.log(data);
-
   const {
     getTableProps,
     getTableBodyProps,

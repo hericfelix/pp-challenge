@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAgents } from '../../providers/agents';
 import Table from '../../components/Table';
 import { NameContainer, StatusContainer, StatusIcon, UserIcon } from './style';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import DesktopAgentModal from '../../components/DesktopAgentModal';
+import useComponentVisible from '../../hooks';
 
 const AgentsTable = () => {
   const { filteredAgents } = useAgents();
@@ -13,7 +15,6 @@ const AgentsTable = () => {
         Header: 'Nome Completo',
         accessor: 'name',
         Cell: (c) => {
-          console.log(c.row.original.status === 'inactive');
           return (
             <NameContainer>
               <UserIcon
@@ -43,14 +44,24 @@ const AgentsTable = () => {
       {
         Header: 'Status',
         accessor: 'status',
-        Cell: (c) => (
-          <StatusContainer>
-            <StatusIcon disabled={c.row.original.status === 'inactive'}>
-              {c.row.original.status === 'active' ? 'Ativo' : 'Inativo'}
-            </StatusIcon>
-            <BsThreeDotsVertical size={'15px'} />
-          </StatusContainer>
-        ),
+        Cell: (c) => {
+          const { ref, isComponentVisible, setIsComponentVisible } =
+            useComponentVisible(false);
+
+          return (
+            <StatusContainer>
+              <StatusIcon disabled={c.row.original.status === 'inactive'}>
+                {c.row.original.status === 'active' ? 'Ativo' : 'Inativo'}
+              </StatusIcon>
+              <div onClick={() => setIsComponentVisible(true)} ref={ref}>
+                <BsThreeDotsVertical size={'15px'} />
+                {isComponentVisible && (
+                  <DesktopAgentModal id={c.row.original.agent_id} />
+                )}
+              </div>
+            </StatusContainer>
+          );
+        },
       },
     ],
 
